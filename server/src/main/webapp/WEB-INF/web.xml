@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <context-param>
+    <param-name>opencensus.public_endpoint</param-name>
+    <param-value>False</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>HCServlet</servlet-name>
+    <servlet-class>com.google.cloud.solutions.opencensus.server.HCServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>OCTestServlet</servlet-name>
+    <servlet-class>com.google.cloud.solutions.opencensus.server.OCTestServlet</servlet-class>
+  </servlet>
+
+  <filter>
+    <filter-name>OcHttpServletFilter</filter-name>
+    <filter-class>io.opencensus.contrib.http.servlet.OcHttpServletFilter</filter-class>
+    <load-on-startup>1</load-on-startup>
+  </filter>
+
+  <servlet-mapping>
+    <servlet-name>HCServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>OCTestServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+
+  <filter-mapping>
+    <filter-name>OcHttpServletFilter</filter-name>
+    <url-pattern>/test</url-pattern>
+  </filter-mapping>
+</web-app>
