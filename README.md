@@ -6,7 +6,9 @@ on the
 [OpenCensus Jetty integration](https://opencensus.io/guides/http/java/jetty/)
 guide. There are two parts to the application: server and client. They will each
 be run on separate Compute Engine virtual machines. The client will send a
-continuous stream of HTTP requests to the server.
+continuous stream of HTTP requests to the server.  The code here is the basis
+for the solution 
+[Identifying causes of app latency with Stackdriver and OpenCensus](https://cloud.google.com/solutions/identifying-causes-of-app-latency-with-stackdriver-and-opencensus).
 
 A common cause of high latency is large payload. With each HTTP request the
 application will send either a small or a large payload with a 5% probability
