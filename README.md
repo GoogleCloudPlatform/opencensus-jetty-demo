@@ -95,7 +95,7 @@ sudo apt-get install maven openjdk-8-jdk -y
 The code makes use of Google Cloud Storage (GCS). Create a bucket to store some
 test files
 ```shell
-gsutil mb gs://$BUCKET
+gcloud storage buckets create gs://$BUCKET
 ```
 
 Generate the example JSON files for the test application.
@@ -111,7 +111,7 @@ higher latency to to the payload size. Upload the files to the bucket just
 created.
 
 ```shell
-gsutil cp small_file.json large_file.json gs://$BUCKET/
+gcloud storage cp small_file.json large_file.json gs://$BUCKET/
 cd ..
 ```
 
